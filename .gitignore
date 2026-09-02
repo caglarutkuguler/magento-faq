@@ -1,0 +1,6 @@
+# The repository holds the module and nothing else.
+/.gorseller/
+/Surumler/
+*.zip
+.DS_Store
+Thumbs.db
