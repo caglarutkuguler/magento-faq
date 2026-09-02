@@ -92,6 +92,16 @@ class ProductFaq extends AbstractProduct
     }
 
     /**
+     * On a product page the block needs its own heading; nothing else announces it.
+     *
+     * @return bool
+     */
+    public function showHeading(): bool
+    {
+        return true;
+    }
+
+    /**
      * The heading shown above the entries.
      *
      * @return string

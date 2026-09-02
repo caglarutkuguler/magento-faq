@@ -1,0 +1,82 @@
+/**
+ * Copyright 2007-2026 MEG Venture & Consulting Ltd.
+ *
+ * Enough style to make the entries read as a list of questions someone can
+ * open, on a theme that gives <details> nothing of its own. No colours of our
+ * choosing beyond a neutral rule and the theme's own text colour, so it sits
+ * inside whatever theme it lands in.
+ */
+
+.megventure-faq {
+    margin: 2.5rem 0;
+}
+
+.megventure-faq__heading {
+    margin-bottom: 1rem;
+}
+
+.megventure-faq__item {
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.megventure-faq__item:first-of-type {
+    border-top: 1px solid rgba(0, 0, 0, .12);
+}
+
+.megventure-faq__question {
+    position: relative;
+    display: block;
+    padding: 1rem 2.5rem 1rem 0;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Safari and Chrome draw their own triangle; ours is the +/- on the right. */
+.megventure-faq__question::-webkit-details-marker {
+    display: none;
+}
+
+.megventure-faq__question::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: .25rem;
+    width: 1.25rem;
+    margin-top: -.75rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+    opacity: .55;
+}
+
+.megventure-faq__item[open] > .megventure-faq__question::after {
+    content: '\2212'; /* minus sign, not a hyphen */
+}
+
+.megventure-faq__question:hover,
+.megventure-faq__question:focus-visible {
+    opacity: .8;
+}
+
+.megventure-faq__answer {
+    padding: 0 2.5rem 1.25rem 0;
+    line-height: 1.6;
+}
+
+.megventure-faq__answer > :last-child {
+    margin-bottom: 0;
+}
+
+/* A printed page has no one to click it, so show every answer. */
+@media print {
+    .megventure-faq__answer {
+        display: block !important;
+    }
+
+    .megventure-faq__question::after {
+        content: '';
+    }
+}

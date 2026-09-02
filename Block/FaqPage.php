@@ -83,6 +83,19 @@ class FaqPage extends Template
     }
 
     /**
+     * Never: the page title already says it.
+     *
+     * The FAQ page carries the heading as its own page title, so a block
+     * heading would print the same words twice.
+     *
+     * @return bool
+     */
+    public function showHeading(): bool
+    {
+        return false;
+    }
+
+    /**
      * The heading shown above the entries.
      *
      * @return string

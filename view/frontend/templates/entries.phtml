@@ -12,7 +12,9 @@ $entries = $block->getEntries();
 ?>
 <?php if ($entries): ?>
     <section class="megventure-faq">
-        <h2 class="megventure-faq__heading"><?= $escaper->escapeHtml($block->getHeading()) ?></h2>
+        <?php if ($block->showHeading()): ?>
+            <h2 class="megventure-faq__heading"><?= $escaper->escapeHtml($block->getHeading()) ?></h2>
+        <?php endif; ?>
         <?php $first = true; ?>
         <?php foreach ($entries as $entry): ?>
             <details class="megventure-faq__item"
