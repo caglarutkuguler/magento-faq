@@ -4,6 +4,18 @@ All notable changes to Megventure_Faq are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.0.1] — 2026-09-02
+
+### Fixed
+
+- **The /faq rewrite deleted other modules' rewrites.** It was stored under
+  Magento's shared `custom` entity type, and `UrlPersist::replace()` removes
+  every row matching the entity type, entity id and store of what it writes —
+  so installing this module deleted any rewrite another module had put there.
+  Our own AI Visibility Toolkit lost its /llms.txt this way, silently: the URL
+  simply started answering 404. The rewrite now lives under a type only this
+  module writes, and upgrading moves the existing row across.
+
 ## [1.0.0] — 2026-09-02
 
 First release: the Magento port of our PrestaShop `megfaq` module.
