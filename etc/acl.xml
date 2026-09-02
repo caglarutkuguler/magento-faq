@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <!--
+                The path must match Magento's own tree exactly. Declaring an
+                existing resource id at a different point makes the merged ACL
+                document invalid and every admin page stops loading.
+                Copied from Magento_Cms, which places its content types here.
+            -->
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Magento_Backend::content_elements">
+                        <resource id="Megventure_Faq::entry" title="Product FAQ" translate="title"
+                                  sortOrder="40">
+                            <resource id="Megventure_Faq::entry_save" title="Save FAQ Entry"
+                                      translate="title" sortOrder="10"/>
+                            <resource id="Megventure_Faq::entry_delete" title="Delete FAQ Entry"
+                                      translate="title" sortOrder="20"/>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Megventure_Faq::config" title="Product FAQ Section"
+                                      translate="title" sortOrder="20"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

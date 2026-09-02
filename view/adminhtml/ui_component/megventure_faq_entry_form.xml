@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">megventure_faq_entry_form.entry_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">FAQ Entry</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <buttons>
+            <button name="back" class="Magento\Cms\Block\Adminhtml\Block\Edit\BackButton"/>
+            <button name="delete" class="Megventure\Faq\Block\Adminhtml\Entry\Edit\DeleteButton"/>
+            <button name="save" class="Megventure\Faq\Block\Adminhtml\Entry\Edit\SaveButton"/>
+        </buttons>
+        <namespace>megventure_faq_entry_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>megventure_faq_entry_form.entry_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="entry_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="megventure_faq/entry/save"/>
+        </settings>
+        <dataProvider class="Megventure\Faq\Model\Entry\DataProvider" name="entry_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <settings>
+            <label translate="true">Entry</label>
+        </settings>
+
+        <field name="entity_id" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="store_id" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="is_active" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Published</label>
+                <tooltip>
+                    <description translate="true">Unpublished entries are hidden from product pages and from the FAQ page.</description>
+                </tooltip>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">0</map>
+                            <map name="true" xsi:type="string">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+        <field name="question" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Question</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="max_text_length" xsi:type="number">500</rule>
+                </validation>
+            </settings>
+        </field>
+
+        <field name="answer" sortOrder="30" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Answer</label>
+                <notice translate="true">Basic HTML is allowed: links, line breaks, bold, italic and lists.</notice>
+            </settings>
+        </field>
+
+        <field name="product_id" sortOrder="40" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Product ID</label>
+                <notice translate="true">Leave at 0 to show this entry on every product page. Enter a product ID to attach it to that one product.</notice>
+                <validation>
+                    <rule name="validate-digits" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+
+        <field name="position" sortOrder="50" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entry</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Position</label>
+                <notice translate="true">Lower numbers appear first. Product-specific entries always sort above shared ones.</notice>
+                <validation>
+                    <rule name="validate-digits" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

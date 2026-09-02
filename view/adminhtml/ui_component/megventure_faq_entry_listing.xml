@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">megventure_faq_entry_listing.megventure_faq_entry_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>megventure_faq_entry_columns</spinner>
+        <deps>
+            <dep>megventure_faq_entry_listing.megventure_faq_entry_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add FAQ Entry</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="megventure_faq_entry_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Megventure_Faq::entry</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="megventure_faq_entry_listing_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="megventure_faq_entry_columns">
+        <settings>
+            <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="megventure_faq/entry/save"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+                <param name="indexField" xsi:type="string">entity_id</param>
+                <param name="enabled" xsi:type="boolean">false</param>
+            </editorConfig>
+        </settings>
+
+        <column name="entity_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+
+        <column name="question" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Question</label>
+            </settings>
+        </column>
+
+        <column name="product_id" sortOrder="30">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Product ID</label>
+            </settings>
+        </column>
+
+        <column name="position" sortOrder="40">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Position</label>
+            </settings>
+        </column>
+
+        <column name="is_active" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <options class="Megventure\Faq\Model\Source\PublishedStatus"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Published</label>
+            </settings>
+        </column>
+
+        <column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Date"
+                component="Magento_Ui/js/grid/columns/date" sortOrder="60">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Updated</label>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions" class="Megventure\Faq\Ui\Component\Listing\Column\EntryActions"
+                       sortOrder="70">
+            <settings>
+                <indexField>entity_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <megventure_faq>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <display>
+                <on_product>1</on_product>
+                <shared_on_product>1</shared_on_product>
+                <faq_page>1</faq_page>
+                <open_first>1</open_first>
+                <fallback_to_default>1</fallback_to_default>
+                <heading>Frequently asked questions</heading>
+            </display>
+        </megventure_faq>
+    </default>
+</config>

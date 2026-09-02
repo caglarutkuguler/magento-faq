@@ -1,0 +1,31 @@
+{
+    "name": "megventure/module-faq",
+    "description": "Product FAQ and customer questions for Magento 2 - shared and product-specific entries, server-rendered",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MEG Venture & Consulting Ltd.",
+            "email": "info@megventure.com",
+            "homepage": "https://www.megventure.com"
+        }
+    ],
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-store": "*",
+        "magento/module-catalog": "*",
+        "magento/module-ui": "*",
+        "magento/module-url-rewrite": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Megventure\\Faq\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

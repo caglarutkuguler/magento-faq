@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright 2007-2026 MEG Venture & Consulting Ltd.
+ *
+ * @var \Megventure\Faq\Block\ProductFaq|\Megventure\Faq\Block\FaqPage $block
+ * @var \Magento\Framework\Escaper $escaper
+ *
+ * Plain <details> elements: they open and close without a line of JavaScript,
+ * and their contents are in the HTML whether or not the browser runs scripts.
+ */
+$entries = $block->getEntries();
+?>
+<?php if ($entries): ?>
+    <section class="megventure-faq">
+        <h2 class="megventure-faq__heading"><?= $escaper->escapeHtml($block->getHeading()) ?></h2>
+        <?php $first = true; ?>
+        <?php foreach ($entries as $entry): ?>
+            <details class="megventure-faq__item"
+                <?= $first && $block->openFirst() ? ' open' : '' ?>>
+                <summary class="megventure-faq__question">
+                    <?= $escaper->escapeHtml($entry->getQuestion()) ?>
+                </summary>
+                <div class="megventure-faq__answer">
+                    <?= $escaper->escapeHtml($entry->getAnswer(), ['a', 'br', 'strong', 'em', 'ul', 'ol', 'li', 'p']) ?>
+                </div>
+            </details>
+            <?php $first = false; ?>
+        <?php endforeach; ?>
+    </section>
+<?php endif; ?>

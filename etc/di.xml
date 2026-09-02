@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Megventure\Faq\Api\Data\EntryInterface"
+                type="Megventure\Faq\Model\Entry"/>
+    <preference for="Megventure\Faq\Api\EntryRepositoryInterface"
+                type="Megventure\Faq\Model\EntryRepository"/>
+
+    <!-- The grid reads through the standard collection factory. -->
+    <virtualType name="MegventureFaqEntryGridDataProvider"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">
+                Megventure\Faq\Model\ResourceModel\Entry\Collection
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="megventure_faq_entry_listing_data_source" xsi:type="string">
+                    Megventure\Faq\Model\ResourceModel\Entry\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Megventure\Faq\Model\ResourceModel\Entry\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">megventure_faq</argument>
+            <argument name="eventPrefix" xsi:type="string">megventure_faq_entry_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">entry_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Megventure\Faq\Model\ResourceModel\Entry
+            </argument>
+        </arguments>
+    </type>
+</config>
