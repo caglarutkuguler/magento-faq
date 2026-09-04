@@ -33,8 +33,7 @@ From the zip:
 
 ```bash
 cd <magento root>
-mkdir -p app/code/Megventure/Faq
-unzip megventure-faq-<version>.zip -d app/code/Megventure/Faq
+unzip megventure-faq-<version>.zip -d app/code
 bin/magento module:enable Megventure_Faq
 bin/magento setup:upgrade
 bin/magento cache:flush
