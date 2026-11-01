@@ -12,6 +12,3 @@ _Only customer-relevant changes are listed. Internal refactoring, tests and hous
 - Configuration under Stores → Configuration → Megventure → Product FAQ: where the entries show, the heading, whether the first entry starts open, and whether to fall back to the default text
 - Storefront output in plain `<details>` elements, rendered server-side with no JavaScript, and a small stylesheet so they read as an openable list on a theme that styles `<details>` no further than the browser default
 - Translations for English, Turkish, German, French, Spanish, Italian, Dutch, Polish and Portuguese
-
-### Improved
-- First release: the Magento port of our PrestaShop `megfaq` module
