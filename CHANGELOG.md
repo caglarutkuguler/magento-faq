@@ -9,8 +9,8 @@ All notable changes to Megventure_Faq are recorded here. The format follows
 ### Fixed
 
 - **The /faq rewrite deleted other modules' rewrites.** It was stored under
-  Magento's shared `custom` entity type, and `UrlPersist::replace()` removes
-  every row matching the entity type, entity id and store of what it writes —
+  the entity type Magento shares between modules, and Magento's rewrite save
+  removes every row matching the entity type, entity id and store it writes —
   so installing this module deleted any rewrite another module had put there.
   Our own AI Visibility Toolkit lost its /llms.txt this way, silently: the URL
   simply started answering 404. The rewrite now lives under a type only this
@@ -33,8 +33,8 @@ First release: the Magento port of our PrestaShop `megfaq` module.
 - Configuration under Stores → Configuration → Megventure → Product FAQ: where
   the entries show, the heading, whether the first entry starts open, and
   whether to fall back to the default text.
-- Storefront output in plain `<details>` elements, rendered server-side with no
-  JavaScript, and a small stylesheet so they read as an openable list on a
-  theme that styles `<details>` no further than the browser default.
+- Storefront output in the browser's own expandable details element, rendered
+  server-side with no JavaScript, and a small stylesheet so it reads as an
+  openable list on a theme that leaves that element at the browser default.
 - Translations for English, Turkish, German, French, Spanish, Italian, Dutch,
   Polish and Portuguese.
