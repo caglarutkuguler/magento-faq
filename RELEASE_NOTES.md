@@ -2,6 +2,11 @@
 
 _Only customer-relevant changes are listed. Internal refactoring, tests and housekeeping are omitted._
 
+## 1.0.2 — 2026-11-23
+
+### Fixed
+- The New FAQ Entry admin page rendered blank: its layout handle file is now named after the real action (`megventure_faq_entry_new`)
+
 ## 1.0.1 — 2026-09-02
 
 ### Fixed
