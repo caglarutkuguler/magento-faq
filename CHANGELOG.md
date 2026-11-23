@@ -4,6 +4,12 @@ All notable changes to Megventure_Faq are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.0.2] - 2026-11-23
+
+### Fixed
+
+- The New FAQ Entry admin page rendered blank: its layout handle file is now named after the real action (`megventure_faq_entry_new`).
+
 ## [1.0.1] — 2026-09-02
 
 ### Fixed
