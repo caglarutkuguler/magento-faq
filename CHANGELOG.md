@@ -4,6 +4,11 @@ All notable changes to Megventure_Faq are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.1.0] — 2026-11-24
+
+### Added
+- Hyvä compatibility: FAQ page uses a one-column layout; heading, answer and link styles restated for Hyvä.
+
 ## [1.0.2] - 2026-11-23
 
 ### Fixed

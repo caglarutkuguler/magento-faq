@@ -83,6 +83,8 @@ Your entries stay in the database. To remove them as well, run
 
 info@megventure.com — or open an issue on the repository.
 
+Hyvä-only layout files give the FAQ page a one-column layout and a small stylesheet for the answer typography. No hard dependency on Hyvä; Luma is unchanged.
+
 ## Licence
 
 MIT. See LICENSE.txt.
