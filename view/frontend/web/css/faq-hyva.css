@@ -1,0 +1,34 @@
+/**
+ * Copyright 2007-2026 MEG Venture & Consulting Ltd.
+ *
+ * Hyvä only (hyva_default layout handle). Hyvä's reset removes the size of
+ * headings and the spacing of paragraphs and lists; the rules below put back
+ * what an FAQ block and the answers inside it need.
+ */
+
+.megventure-faq__heading {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.megventure-faq__answer p,
+.megventure-faq__answer ul,
+.megventure-faq__answer ol {
+    margin-bottom: .75rem;
+}
+
+.megventure-faq__answer ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.megventure-faq__answer ol {
+    padding-left: 1.5rem;
+    list-style: decimal;
+}
+
+.megventure-faq__answer a {
+    text-decoration: underline;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2007-2026 MEG Venture & Consulting Ltd.
+ *
+ * @license MIT
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Tailwind's reset flattens headings, paragraphs and lists; this restores them inside an answer. -->
+        <css src="Megventure_Faq::css/faq-hyva.css"/>
+    </head>
+</page>
