@@ -4,6 +4,11 @@ All notable changes to Megventure_Faq are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [semantic versioning](https://semver.org/).
 
+## [1.1.1] — 2026-11-24
+
+### Fixed
+- A store view added after installation (a second storefront on another theme) answered 404 on /faq. The address is now published for new store views as they are created.
+
 ## [1.1.0] — 2026-11-24
 
 ### Added
